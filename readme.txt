@@ -53,6 +53,8 @@ No documentation is provided.
 * Added Google Noto to Font Options
 * Fixed Bug in Font Selection
 * Refactored theme customizer options to play nice with other themes
+* Changed Google font URL to a dynamic url only pulling in the currently used fonts
+* Fixed issue in 404.php
 
 = 1.3.0 - 7.12.2016 =
 
@@ -62,8 +64,6 @@ No documentation is provided.
 * Integrated Yoast SEO Breadcrumbs into theme.
 * Added some custom AdSense ad locations for the Google AdSense Plugin.
 * Added SEO Options area to customizer.
-
-
 
 = 1.2.0 - 4.12.2016 =
 
