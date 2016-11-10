@@ -62,7 +62,7 @@
 	</div>
 	
 	<?php if (get_the_author_meta('description') && 
-			  (get_theme_mod('author_block', 1) == 1) || 
+			  (get_theme_mod('bytemonkey_author_block', 1) == 1) || 
 			  function_exists( 'wpsabox_author_box' )) :  ?>
 	<div class="blog-item-wrap"></div>
 	<div class="post-inner-content secondary-content-box">

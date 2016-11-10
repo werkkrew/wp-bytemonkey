@@ -35,7 +35,7 @@
 			<div class="entry-content">
 
 				<?php
-				if ( get_theme_mod( 'excerpt_show', 1 ) == 1 ) :
+				if ( get_theme_mod( 'bytemonkey_excerpt_show', 1 ) == 1 ) :
 					the_excerpt();
 				else :
 					the_content();

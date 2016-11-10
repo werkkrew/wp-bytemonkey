@@ -102,13 +102,13 @@ function bytemonkey_customizer( $wp_customize ) {
 	// Typography Options
 	$typography_options = bytemonkey_get_typography_options();
 	
-	$wp_customize->add_setting( 'color_scheme', array(
+	$wp_customize->add_setting( 'bytemonkey_color_scheme', array(
 		'default'           => 'default',
 		'sanitize_callback' => 'bytemonkey_sanitize_color_scheme',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( 'color_scheme', array(
+	$wp_customize->add_control( 'bytemonkey_color_scheme', array(
 		'label'    => __( 'Base Color Scheme', 'bytemonkey' ),
 		'section'  => 'colors',
 		'type'     => 'select',
@@ -116,13 +116,13 @@ function bytemonkey_customizer( $wp_customize ) {
 		'priority' => 1,
 	));
 
-	$wp_customize->add_setting( 'primary_element_color', array(
+	$wp_customize->add_setting( 'bytemonkey_primary_element_color', array(
 		'default'           => $color_scheme[0],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_element_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_primary_element_color', array(
 		'label'       => __( 'Primary Element Color', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
@@ -130,69 +130,69 @@ function bytemonkey_customizer( $wp_customize ) {
 	// Remove the core header textcolor control, as it shares the main text color.
 	$wp_customize->remove_control( 'header_textcolor' );
 
-	$wp_customize->add_setting( 'secondary_element_color', array(
+	$wp_customize->add_setting( 'bytemonkey_secondary_element_color', array(
 		'default'           => $color_scheme[1],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_element_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_secondary_element_color', array(
 		'label'       => __( 'Secondary Element Color', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
 	
-	$wp_customize->add_setting( 'background_color', array(
+	$wp_customize->add_setting( 'bytemonkey_background_color', array(
 		'default'           => $color_scheme[2],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_background_color', array(
 		'label'       => __( 'Background Color', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
 
 
-	$wp_customize->add_setting( 'main_text_color', array(
+	$wp_customize->add_setting( 'bytemonkey_main_text_color', array(
 		'default'           => $color_scheme[3],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_text_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_main_text_color', array(
 		'label'       => __( 'Primary Text Color', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
 
-	$wp_customize->add_setting( 'header_text_color', array(
+	$wp_customize->add_setting( 'bytemonkey_header_text_color', array(
 		'default'           => $color_scheme[4],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_text_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_header_text_color', array(
 		'label'       => __( 'Header/Footer Text Color', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
 	
-	$wp_customize->add_setting( 'header_link_active_color', array(
+	$wp_customize->add_setting( 'bytemonkey_header_link_active_color', array(
 		'default'           => $color_scheme[5],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_link_active_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_header_link_active_color', array(
 		'label'       => __( 'Header/Footer Link Coloration', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
 	
-	$wp_customize->add_setting( 'footer_widget_background_color', array(
+	$wp_customize->add_setting( 'bytemonkey_footer_widget_background_color', array(
 		'default'           => $color_scheme[6],
 		'sanitize_callback' => 'bytemonkey_sanitize_hexcolor',
 		'transport'         => 'postMessage',
 	));
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_widget_background_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bytemonkey_footer_widget_background_color', array(
 		'label'       => __( 'Footer Widget Area Background Color', 'bytemonkey' ),
 		'section'     => 'colors',
 	)));
@@ -202,11 +202,11 @@ function bytemonkey_customizer( $wp_customize ) {
 		'priority'   => 20,
 	));
 	
-		$wp_customize->add_setting('excerpt_length', array(
+		$wp_customize->add_setting('bytemonkey_excerpt_length', array(
 			'default' 			=> '150',
 			'sanitize_callback' => 'bytemonkey_sanitize_number'
 		));
-		$wp_customize->add_control('excerpt_length', array(
+		$wp_customize->add_control('bytemonkey_excerpt_length', array(
 			'label' 		=> __('Post Excerpts', 'bytemonkey'),
 			'description' 	=> sprintf(__('Length of post exceprts', 'bytemonkey')),
 			'section' 		=> 'bytemonkey_content_section',
@@ -219,33 +219,33 @@ function bytemonkey_customizer( $wp_customize ) {
 			)
 		));
 		
-		$wp_customize->add_setting( 'excerpt_show', array(
+		$wp_customize->add_setting( 'bytemonkey_excerpt_show', array(
 			'default'           => 1,
 			'sanitize_callback' => 'bytemonkey_sanitize_checkbox',
 		));
-		$wp_customize->add_control( 'excerpt_show', array(
+		$wp_customize->add_control( 'bytemonkey_excerpt_show', array(
 			'label'     => esc_html__( 'Show post excerpts?', 'bytemonkey' ),
 			'section'   => 'bytemonkey_content_section',
 			'priority'  => 110,
 			'type'      => 'checkbox'
 		));
 
-		$wp_customize->add_setting( 'page_comments', array(
+		$wp_customize->add_setting( 'bytemonkey_page_comments', array(
 				'default' 			=> 0,
 				'sanitize_callback' => 'bytemonkey_sanitize_checkbox',
 		));
-		$wp_customize->add_control( 'page_comments', array(
+		$wp_customize->add_control( 'bytemonkey_page_comments', array(
 			'label'		=> esc_html__( 'Display Comments on Static Pages?', 'bytemonkey' ),
 			'section'	=> 'bytemonkey_content_section',
 			'priority'	=> 120,
 			'type'      => 'checkbox',
 		));
 		
-		$wp_customize->add_setting( 'author_block', array(
+		$wp_customize->add_setting( 'bytemonkey_author_block', array(
 				'default' 			=> 1,
 				'sanitize_callback' => 'bytemonkey_sanitize_checkbox',
 		));
-		$wp_customize->add_control( 'author_block', array(
+		$wp_customize->add_control( 'bytemonkey_author_block', array(
 				'label'			=> esc_html__( 'Display Author Block?', 'bytemonkey' ),
 				'description'	=> sprintf(__('If there are multiple authors, show author bio at the end of the posts.', 'bytemonkey')),
 				'section'		=> 'bytemonkey_content_section',
@@ -253,11 +253,11 @@ function bytemonkey_customizer( $wp_customize ) {
 				'type'      	=> 'checkbox',
 		));
 		
-		$wp_customize->add_setting('footer_custom_text', array(
+		$wp_customize->add_setting('bytemonkey_footer_custom_text', array(
 			'default' 			=> '',
 			'sanitize_callback' => 'bytemonkey_sanitize_strip_slashes'
 		));
-		$wp_customize->add_control('footer_custom_text', array(
+		$wp_customize->add_control('bytemonkey_footer_custom_text', array(
 			'label' 			=> __('Footer information', 'bytemonkey'),
 			'description' 		=> sprintf(__('Copyright text in footer', 'bytemonkey')),
 			'section' 			=> 'bytemonkey_content_section',
@@ -265,12 +265,12 @@ function bytemonkey_customizer( $wp_customize ) {
 			'type' 				=> 'textarea'
 		));
 		
-		$wp_customize->add_setting('footer_social_icons', array(
+		$wp_customize->add_setting('bytemonkey_footer_social_icons', array(
 			'default' 			=> 0,
 			'type' 				=> 'option',
 			'sanitize_callback' => 'bytemonkey_sanitize_checkbox'
 		));
-		$wp_customize->add_control('footer_social_icons', array(
+		$wp_customize->add_control('bytemonkey_footer_social_icons', array(
 			'label' 			=> __('Footer Social Icons', 'bytemonkey'),
 			'description' 		=> sprintf(__('Check to show social icons in footer', 'bytemonkey')),
 			'section' 			=> 'bytemonkey_content_section',
@@ -282,22 +282,22 @@ function bytemonkey_customizer( $wp_customize ) {
 		'title' 		=> __('Layout options', 'bytemonkey'),
 		'priority' 		=> 30,
 	));	
-		$wp_customize->add_setting('sticky_header', array(
+		$wp_customize->add_setting('bytemonkey_sticky_header', array(
 			'default' 			=> 0,
 			'sanitize_callback' => 'bytemonkey_sanitize_checkbox'
 		));
-		$wp_customize->add_control('sticky_header', array(
+		$wp_customize->add_control('bytemonkey_sticky_header', array(
 			'label' 			=> __('Sticky Header', 'bytemonkey'),
 			'description' 		=> sprintf(__('Check to show fixed header', 'bytemonkey')),
 			'section' 			=> 'bytemonkey_layout_options',
 			'type' 				=> 'checkbox',
 		));
 		
-		$wp_customize->add_setting('frontpage_layout', array(
+		$wp_customize->add_setting('bytemonkey_frontpage_layout', array(
 			 'default' 				=> 'side-pull-left',
 			 'sanitize_callback' 	=> 'bytemonkey_sanitize_layout'
 		));
-		$wp_customize->add_control('frontpage_layout', array(
+		$wp_customize->add_control('bytemonkey_frontpage_layout', array(
 			 'label' 				=> __('Frontpage Layout', 'bytemonkey'),
 			 'section' 				=> 'bytemonkey_layout_options',
 			 'type'    				=> 'select',
@@ -305,11 +305,11 @@ function bytemonkey_customizer( $wp_customize ) {
 			 'choices'    			=> $layout_options
 		));
 		
-		$wp_customize->add_setting('post_layout', array(
+		$wp_customize->add_setting('bytemonkey_post_layout', array(
 			 'default' 				=> 'full-width',
 			 'sanitize_callback' 	=> 'bytemonkey_sanitize_layout'
 		));
-		$wp_customize->add_control('post_layout', array(
+		$wp_customize->add_control('bytemonkey_post_layout', array(
 			 'label' 				=> __('Post Layout', 'bytemonkey'),
 			 'section' 				=> 'bytemonkey_layout_options',
 			 'type'                 => 'select',
@@ -317,11 +317,11 @@ function bytemonkey_customizer( $wp_customize ) {
 			 'choices'    			=> $layout_options
 		));
 		
-		$wp_customize->add_setting('page_layout', array(
+		$wp_customize->add_setting('bytemonkey_page_layout', array(
 			 'default' 				=> 'side-pull-left',
 			 'sanitize_callback' 	=> 'bytemonkey_sanitize_layout'
 		));
-		$wp_customize->add_control('page_layout', array(
+		$wp_customize->add_control('bytemonkey_page_layout', array(
 			 'label' 				=> __('Page Layout', 'bytemonkey'),
 			 'section' 				=> 'bytemonkey_layout_options',
 			 'type'    				=> 'select',
@@ -329,11 +329,11 @@ function bytemonkey_customizer( $wp_customize ) {
 			 'choices'    			=> $layout_options
 		));
 		
-		$wp_customize->add_setting('site_layout', array(
+		$wp_customize->add_setting('bytemonkey_site_layout', array(
 			 'default' 				=> 'side-pull-left',
 			 'sanitize_callback' 	=> 'bytemonkey_sanitize_layout'
 		));
-		$wp_customize->add_control('site_layout', array(
+		$wp_customize->add_control('bytemonkey_site_layout', array(
 			 'label' 				=> __('Misc. Layout Options', 'bytemonkey'),
 			 'section' 				=> 'bytemonkey_layout_options',
 			 'type'    				=> 'select',
@@ -347,33 +347,33 @@ function bytemonkey_customizer( $wp_customize ) {
 		'priority'   => 100,
 	));
 		
-		$wp_customize->add_setting( 'google_cse_search', array(
+		$wp_customize->add_setting( 'bytemonkey_google_cse_search', array(
 			'default'           => 1,
 			'sanitize_callback' => 'bytemonkey_sanitize_checkbox',
 		));
-		$wp_customize->add_control( 'google_cse_search', array(
+		$wp_customize->add_control( 'bytemonkey_google_cse_search', array(
 			'label'     => esc_html__( 'Use Google CSE For Search?', 'bytemonkey' ),
 			'section'   => 'bytemonkey_seo_section',
 			'priority'  => 110,
 			'type'      => 'checkbox'
 		));
 		
-		$wp_customize->add_setting('google_cse_id', array(
+		$wp_customize->add_setting('bytemonkey_google_cse_id', array(
 			'default' 			=> '004364479666620937412:d9zjyedvax4',
 			'sanitize_callback' => 'esc_url_raw'
 		));
-		$wp_customize->add_control('google_cse_id', array(
+		$wp_customize->add_control('bytemonkey_google_cse_id', array(
 			'label' 			=> __('Google CSE ID', 'bytemonkey'),
 			'section' 			=> 'bytemonkey_seo_section',
 			'description' 		=> __('Enter your Google CSE ID code', 'bytemonkey'),
 			'type' 				=> 'text'
 		));
 
-		$wp_customize->add_setting( 'yoast_breadcrumbs', array(
+		$wp_customize->add_setting( 'bytemonkey_yoast_breadcrumbs', array(
 				'default' 			=> 0,
 				'sanitize_callback' => 'bytemonkey_sanitize_checkbox',
 		));
-		$wp_customize->add_control( 'yoast_breadcrumbs', array(
+		$wp_customize->add_control( 'bytemonkey_yoast_breadcrumbs', array(
 			'label'			=> esc_html__( 'Enable Yoast Breadcrumbs?', 'bytemonkey' ),
 			'section'		=> 'bytemonkey_seo_section',
 			'description' 	=> __('Displays Yoast Breadcrumbs in theme if the plugin is installed and has them enabled.', 'bytemonkey'),
@@ -386,90 +386,90 @@ function bytemonkey_customizer( $wp_customize ) {
 		'title' 					=> __('Typography', 'bytemonkey'),
 		'priority' 					=> 40
 	));		
-		$wp_customize->add_setting('main_typography_face', array(
+		$wp_customize->add_setting('bytemonkey_main_typography_face', array(
 			'default' 			=> $typography_defaults['main_face'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_face',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('main_typography_face', array(
+		$wp_customize->add_control('bytemonkey_main_typography_face', array(
 			'label' 			=> __('Primary Typography', 'bytemonkey'),
 			'description' 		=> __('Used page/post body, widget text, etc.', 'bytemonkey'),
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['faces']
 		));
-		$wp_customize->add_setting('main_typography_size', array(
+		$wp_customize->add_setting('bytemonkey_main_typography_size', array(
 			'default' 			=> $typography_defaults['main_size'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_size',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('main_typography_size', array(
+		$wp_customize->add_control('bytemonkey_main_typography_size', array(
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['sizes']
 		));
-		$wp_customize->add_setting('main_typography_style', array(
+		$wp_customize->add_setting('bytemonkey_main_typography_style', array(
 			'default' 			=> $typography_defaults['main_style'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_style',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('main_typography_style', array(
+		$wp_customize->add_control('bytemonkey_main_typography_style', array(
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['styles']
 		));
 		
-		$wp_customize->add_setting('heading_typography_face', array(
+		$wp_customize->add_setting('bytemonkey_heading_typography_face', array(
 			'default' 			=> $typography_defaults['head_face'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_face',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('heading_typography_face', array(
+		$wp_customize->add_control('bytemonkey_heading_typography_face', array(
 			'label' 			=> __('Heading Typography', 'bytemonkey'),
 			'description' 		=> __('Page/Post Titles', 'bytemonkey'),
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['faces']
 		));
-		$wp_customize->add_setting('heading_typography_style', array(
+		$wp_customize->add_setting('bytemonkey_heading_typography_style', array(
 			'default' 			=> $typography_defaults['head_style'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_style',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('heading_typography_style', array(
+		$wp_customize->add_control('bytemonkey_heading_typography_style', array(
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['styles']
 		));
 		
-		$wp_customize->add_setting('widget_typography_face', array(
+		$wp_customize->add_setting('bytemonkey_widget_typography_face', array(
 			'default' 			=> $typography_defaults['widg_face'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_face',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('widget_typography_face', array(
+		$wp_customize->add_control('bytemonkey_widget_typography_face', array(
 			'label' 			=> __('Widget Heading Typography', 'bytemonkey'),
 			'description' 		=> __('Widget title typography', 'bytemonkey'),
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['faces']
 		));
-		$wp_customize->add_setting('widget_typography_size', array(
+		$wp_customize->add_setting('bytemonkey_widget_typography_size', array(
 			'default' 			=> $typography_defaults['widg_size'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_size',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('widget_typography_size', array(
+		$wp_customize->add_control('bytemonkey_widget_typography_size', array(
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['sizes']
 		));
-		$wp_customize->add_setting('widget_typography_style', array(
+		$wp_customize->add_setting('bytemonkey_widget_typography_style', array(
 			'default' 			=> $typography_defaults['widg_style'],
 			'sanitize_callback' => 'bytemonkey_sanitize_typo_style',
 			'transport'         => 'postMessage',
 		));
-		$wp_customize->add_control('widget_typography_style', array(
+		$wp_customize->add_control('bytemonkey_widget_typography_style', array(
 			'section' 			=> 'bytemonkey_typography_options',
 			'type'    			=> 'select',
 			'choices'    		=> $typography_options['styles']
@@ -480,34 +480,34 @@ function bytemonkey_customizer( $wp_customize ) {
 		'title' 				=> __('Call For Action', 'bytemonkey'),
 		'priority' 				=> 100
 	));
-		$wp_customize->add_setting('w2f_cfa_text', array(
+		$wp_customize->add_setting('bytemonkey_w2f_cfa_text', array(
 			'default' 			=> '',
 			'sanitize_callback' => 'bytemonkey_sanitize_strip_slashes'
 		));
-		$wp_customize->add_control('w2f_cfa_text', array(
+		$wp_customize->add_control('bytemonkey_w2f_cfa_text', array(
 			'label' 			=> __('Call For Action Text', 'bytemonkey'),
 			'description' 		=> sprintf(__('Enter the text for call for action section', 'bytemonkey')),
 			'section' 			=> 'bytemonkey_action_options',
 			'type' 				=> 'textarea'
 		));
 
-		$wp_customize->add_setting('w2f_cfa_button', array(
+		$wp_customize->add_setting('bytemonkey_w2f_cfa_button', array(
 			'default' 			=> '',
 			'type' 				=> 'option',
 			'sanitize_callback' => 'bytemonkey_sanitize_nohtml'
 		));
-		$wp_customize->add_control('w2f_cfa_button', array(
+		$wp_customize->add_control('bytemonkey_w2f_cfa_button', array(
 			'label' 			=> __('Call For Action Button Title', 'bytemonkey'),
 			'section' 			=> 'bytemonkey_action_options',
 			'description' 		=> __('Enter the title for Call For Action button', 'bytemonkey'),
 			'type' 				=> 'text'
 		));
 
-		$wp_customize->add_setting('w2f_cfa_link', array(
+		$wp_customize->add_setting('bytemonkey_w2f_cfa_link', array(
 			'default' 			=> '',
 			'sanitize_callback' => 'esc_url_raw'
 		));
-		$wp_customize->add_control('w2f_cfa_link', array(
+		$wp_customize->add_control('bytemonkey_w2f_cfa_link', array(
 			'label' 			=> __('CFA button link', 'bytemonkey'),
 			'section' 			=> 'bytemonkey_action_options',
 			'description' 		=> __('Enter the link for Call For Action button', 'bytemonkey'),
@@ -523,7 +523,7 @@ add_action( 'customize_register', 'bytemonkey_customizer' );
  * @return array An associative array of either the current or default color scheme HEX values.
  */
 function bytemonkey_get_color_scheme() {
-	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
+	$color_scheme_option = get_theme_mod( 'bytemonkey_color_scheme', 'default' );
 	$color_schemes       = bytemonkey_get_color_schemes();
 
 	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
@@ -580,7 +580,7 @@ add_action( 'customize_preview_init', 'bytemonkey_customize_preview_js' );
 function bytemonkey_primary_color_css() {
 	$color_scheme    = bytemonkey_get_color_scheme();
 	$default_color   = $color_scheme[0];
-	$primary_color 	 = get_theme_mod( 'primary_color', $default_color );
+	$primary_color 	 = get_theme_mod( 'bytemonkey_primary_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $primary_color === $default_color ) {
@@ -693,7 +693,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_primary_color_css', 11 );
 function bytemonkey_secondary_color_css() {
 	$color_scheme          = bytemonkey_get_color_scheme();
 	$default_color         = $color_scheme[1];
-	$secondary_color 	   = get_theme_mod( 'secondary_color', $default_color );
+	$secondary_color 	   = get_theme_mod( 'bytemonkey_secondary_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $secondary_color === $default_color ) {
@@ -753,7 +753,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_secondary_color_css', 11 );
 function bytemonkey_background_color_css() {
 	$color_scheme          = bytemonkey_get_color_scheme();
 	$default_color         = $color_scheme[2];
-	$background_color 	   = get_theme_mod( 'background_color', $default_color );
+	$background_color 	   = get_theme_mod( 'bytemonkey_background_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $background_color === $default_color ) {
@@ -780,7 +780,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_background_color_css', 11 );
 function bytemonkey_main_text_color_css() {
 	$color_scheme          = bytemonkey_get_color_scheme();
 	$default_color         = $color_scheme[3];
-	$main_text_color 	   = get_theme_mod( 'main_text_color', $default_color );
+	$main_text_color 	   = get_theme_mod( 'bytemonkey_main_text_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $main_text_color === $default_color ) {
@@ -834,7 +834,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_main_text_color_css', 11 );
 function bytemonkey_header_text_color_css() {
 	$color_scheme          = bytemonkey_get_color_scheme();
 	$default_color         = $color_scheme[4];
-	$header_text_color 	   = get_theme_mod( 'header_text_color', $default_color );
+	$header_text_color 	   = get_theme_mod( 'bytemonkey_header_text_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $header_text_color === $default_color ) {
@@ -922,7 +922,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_header_text_color_css', 11 );
 function bytemonkey_header_hover_color_css() {
 	$color_scheme          = bytemonkey_get_color_scheme();
 	$default_color         = $color_scheme[5];
-	$header_hover_color    = get_theme_mod( 'header_hover_color', $default_color );
+	$header_hover_color    = get_theme_mod( 'bytemonkey_header_hover_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $header_hover_color === $default_color ) {
@@ -1008,7 +1008,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_header_hover_color_css', 11 );
 function bytemonkey_footer_widget_bg_color_css() {
 	$color_scheme          	= bytemonkey_get_color_scheme();
 	$default_color         	= $color_scheme[6];
-	$footer_widget_bg_color	= get_theme_mod( 'footer_widget_bg_color', $default_color );
+	$footer_widget_bg_color	= get_theme_mod( 'bytemonkey_footer_widget_bg_color', $default_color );
 
 	// Don't do anything if the current color is the default.
 	if ( $footer_widget_bg_color === $default_color ) {
@@ -1057,9 +1057,9 @@ function bytemonkey_main_typography_css() {
 	$default_size		   = $typography_defaults['main_size'];
 	$default_style		   = $typography_defaults['main_style'];
 	
-	$main_face			   = get_theme_mod('main_typography_face', $default_face);
-	$main_size			   = get_theme_mod('main_typography_size', $default_size);
-	$main_style			   = get_theme_mod('main_typography_style', $default_style);
+	$main_face			   = get_theme_mod('bytemonkey_main_typography_face', $default_face);
+	$main_size			   = get_theme_mod('bytemonkey_main_typography_size', $default_size);
+	$main_style			   = get_theme_mod('bytemonkey_main_typography_style', $default_style);
 	
 	// Don't do anything if the current typography is the default.
 	if ( $main_face === $default_face && $main_size === $default_size && $main_style === $default_style ) {
@@ -1101,8 +1101,8 @@ function bytemonkey_header_typography_css() {
 	$default_face          = $typography_defaults['head_face'];
 	$default_style		   = $typography_defaults['head_style'];
 	
-	$head_face			   = get_theme_mod('header_typography_face', $default_face);
-	$head_style			   = get_theme_mod('header_typography_style', $default_style);
+	$head_face			   = get_theme_mod('bytemonkey_header_typography_face', $default_face);
+	$head_style			   = get_theme_mod('bytemonkey_header_typography_style', $default_style);
 	
 	// Don't do anything if the current color is the default.
 	if ( $head_face === $default_face && $head_style === $default_style ) {
@@ -1158,9 +1158,9 @@ function bytemonkey_widget_typography_css() {
 	$default_size		   = $typography_defaults['widg_size'];
 	$default_style		   = $typography_defaults['widg_style'];
 	
-	$widg_face			   = get_theme_mod('widget_typography_face', $default_face);
-	$widg_size			   = get_theme_mod('widget_typography_size', $default_size);
-	$widg_style			   = get_theme_mod('widget_typography_style', $default_style);
+	$widg_face			   = get_theme_mod('bytemonkey_widget_typography_face', $default_face);
+	$widg_size			   = get_theme_mod('bytemonkey_widget_typography_size', $default_size);
+	$widg_style			   = get_theme_mod('bytemonkey_widget_typography_style', $default_style);
 	
 
 	// Don't do anything if the current typography is the default.

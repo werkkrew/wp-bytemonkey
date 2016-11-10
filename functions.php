@@ -33,7 +33,7 @@ if ( ! isset( $content_width ) ) {
  * Set excerpt length 
  */
 function wpdocs_custom_excerpt_length( $length ) {
-	$excerpt_length = get_theme_mod('excerpt_length', 150);
+	$excerpt_length = get_theme_mod('bytemonkey_excerpt_length', 150);
     return $excerpt_length;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
@@ -50,7 +50,26 @@ function bytemonkey_content_width() {
 add_action( 'template_redirect', 'bytemonkey_content_width' );
 
 function bytemonkey_fonts_url() {
-	return 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Open+Sans:400italic,400,600,700|Source+Sans+Pro:400,600,400italic,300,200,700';
+	
+	$google_fonts_url = 'https://fonts.googleapis.com/css?family='
+	
+	$noto_sans = 'Noto+Sans:400,400i,700,700i';
+	$noto_serif = 'Noto+Serif:400,400i,700,700i';
+	$roboto_slab = 'Roboto+Slab:400,300,700';
+	$open_sans = 'Open+Sans:400italic,400,600,700';
+	$source_sans = 'Source+Sans+Pro:400,600,400italic';
+	
+	$faces[0] = get_theme_mod('bytemonkey_main_typography_face', $default_face);
+	$faces[1] = get_theme_mod('bytemonkey_header_typography_face', $default_face);
+	$faces[2] = get_theme_mod('bytemonkey_widget_typography_face', $default_face);
+	
+	$faces = array_unique($faces);
+	
+	$faces = http_build_query($faces, '', '|');
+	
+	$bytemonkey_font_url = $google_fonts_url . $faces;
+	
+	return $bytemonkey_font_url;
 }
 
 if ( ! function_exists( 'bytemonkey_main_content_bootstrap_classes' ) ) :
@@ -196,6 +215,8 @@ function bytemonkey_get_typography_options() {
 	$typography_options = array(
         'sizes' => array( '6px' => '6px','10px' => '10px','12px' => '12px','14px' => '14px','15px' => '15px','16px' => '16px','18'=> '18px','20px' => '20px','24px' => '24px','28px' => '28px','32px' => '32px','36px' => '36px','42px' => '42px','48px' => '48px' ),
         'faces' => array(
+				'Noto Sans'      => 'Noto Sans',
+				'Noto Serif'     => 'Noto Serif',
                 'Source Sans Pro'=> 'Source Sans Pro',
 				'Roboto Slab'    => 'Roboto Slab',
 				'Open Sans'      => 'Open Sans',
@@ -352,7 +373,7 @@ add_action( 'wp_enqueue_scripts', 'bytemonkey_scripts' );
  */
 function bytemonkey_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() && (get_theme_mod('author_block', 1) == 1)) {
+	if ( is_multi_author() && (get_theme_mod('bytemonkey_author_block', 1) == 1)) {
 		$classes[] = 'group-blog';
 	}
 
@@ -456,21 +477,21 @@ if ( ! function_exists( 'get_layout_class' ) ) :
 function get_layout_class () {
     global $post;
 	if( is_front_page() ){
-		$layout_class = get_theme_mod( 'frontpage_layout', 'side-pull-left' );
+		$layout_class = get_theme_mod( 'bytemonkey_frontpage_layout', 'side-pull-left' );
 	} elseif ( is_page() ) {
 		if( get_post_meta($post->ID, 'site_layout', true) ){
 			$layout_class = get_post_meta($post->ID, 'site_layout', true);
 		} else {
-			$layout_class = get_theme_mod( 'page_layout', 'side-pull-left' );
+			$layout_class = get_theme_mod( 'bytemonkey_page_layout', 'side-pull-left' );
 		}
 	} elseif( is_singular() ) {
 		if(	get_post_meta($post->ID, 'site_layout', true) ){
 			$layout_class = get_post_meta($post->ID, 'site_layout', true);
 		} else {
-			$layout_class = get_theme_mod( 'post_layout', 'full-width' );
+			$layout_class = get_theme_mod( 'bytemonkey_post_layout', 'full-width' );
 		}
     } else {
-        $layout_class = get_theme_mod( 'site_layout', 'side-pull-left' );
+        $layout_class = get_theme_mod( 'bytemokey_site_layout', 'side-pull-left' );
     }
     return $layout_class;
 }

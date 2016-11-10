@@ -2,7 +2,7 @@
 
 Theme Name: Bytemonkey
 Theme URI: https://bryanchain.com/theme
-Tested up to: WP 4.5.3
+Tested up to: WP 4.6.1
 
 Author: Bryan Chain
 Author URI: https://bryanchain.com
@@ -47,6 +47,12 @@ Unzip it and move the unzipped contents to the "wp-content/themes" folder of you
 No documentation is provided.
 
 /*========= Changelog =========*/
+
+= 1.3.1 - 11.09.2016
+
+* Added Google Noto to Font Options
+* Fixed Bug in Font Selection
+* Refactored theme customizer options to play nice with other themes
 
 = 1.3.0 - 7.12.2016 =
 

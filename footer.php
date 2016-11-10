@@ -21,12 +21,12 @@
 		<footer id="colophon" class="site-footer" >
 			<div class="site-info container">
 				<div class="row">
-					<?php if( get_theme_mod('footer_social_icons', 0) ) bytemonkey_social_icons(); ?>
+					<?php if( get_theme_mod('bytemonkey_footer_social_icons', 0) ) bytemonkey_social_icons(); ?>
 					<nav class="col-md-6">
 						<?php bytemonkey_footer_links(); ?>
 					</nav>
 					<div class="copyright col-md-6">
-						<?php echo get_theme_mod( 'footer_custom_text' ); ?>
+						<?php echo get_theme_mod( 'bytemonkey_footer_custom_text' ); ?>
 						<?php bytemonkey_footer_info(); ?>
 					</div>
 				</div>

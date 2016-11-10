@@ -112,14 +112,14 @@ if ( ! function_exists( 'bytemonkey_call_for_action' ) ) :
  * Call for action text and button displayed above content
  */
 function bytemonkey_call_for_action() {
-	if ( is_front_page() && get_theme_mod( 'w2f_cfa_text', '' ) != '' ){
+	if ( is_front_page() && get_theme_mod( 'bytemonkey_w2f_cfa_text', '' ) != '' ){
 		echo '<div class="cfa">';
 		echo '<div class="container">';
         echo '<div class="col-sm-8">';
-        echo '<span class="cfa-text">'. get_theme_mod( 'w2f_cfa_text', '' ).'</span>';
+        echo '<span class="cfa-text">'. get_theme_mod( 'bytemonkey_w2f_cfa_text', '' ).'</span>';
         echo '</div>';
         echo '<div class="col-sm-4">';
-        echo '<a class="btn btn-lg cfa-button" href="'. get_theme_mod( 'w2f_cfa_link', '' ). '">'. get_theme_mod( 'w2f_cfa_button', '' ). '</a>';
+        echo '<a class="btn btn-lg cfa-button" href="'. get_theme_mod( 'bytemonkey_w2f_cfa_link', '' ). '">'. get_theme_mod( 'bytemonkey_w2f_cfa_button', '' ). '</a>';
         echo '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -188,7 +188,7 @@ add_filter( 'kses_allowed_protocols' , 'bytemonkey_allow_skype_protocol' );
  * Fallback option for the old Social Icons.
  */
 function bytemonkey_social(){
-	if( get_theme_mod('footer_social_icons', 0)  ) {
+	if( get_theme_mod('bytemonkey_footer_social_icons', 0)  ) {
 		bytemonkey_social_icons();
 	}
 }

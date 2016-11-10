@@ -43,7 +43,7 @@
 <div id="page" class="hfeed site">
 
 	<header id="masthead" class="site-header">
-		<nav class="navbar navbar-default <?php if( get_theme_mod( 'sticky_header', 0 ) ) echo 'navbar-fixed-top'; ?>" >
+		<nav class="navbar navbar-default <?php if( get_theme_mod( 'bytemonkey_sticky_header', 0 ) ) echo 'navbar-fixed-top'; ?>" >
 			<div class="container">
 				<div class="row">
 					<div class="site-navigation-inner col-sm-12">
