@@ -29,6 +29,13 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 648; /* pixels */
 }
 
+# Jetpack tiled gallery content width
+function bytemonkey_custom_tiled_gallery_width() {
+    return '1050';
+}
+add_filter( 'tiled_gallery_content_width', 'bytemonkey_custom_tiled_gallery_width' );
+
+
 /**
  * Set excerpt length 
  */
