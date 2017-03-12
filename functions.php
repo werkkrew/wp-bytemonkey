@@ -35,6 +35,10 @@ function bytemonkey_custom_tiled_gallery_width() {
 }
 add_filter( 'tiled_gallery_content_width', 'bytemonkey_custom_tiled_gallery_width' );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> efd695fcfafe474133e39cf55f2920f446de085c
 /**
  * Set excerpt length 
  */
@@ -76,7 +80,11 @@ function bytemonkey_fonts_url() {
         foreach($theme_fonts as $font){
 			$fonts[] = $google_fonts[$font];
         }
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> efd695fcfafe474133e39cf55f2920f446de085c
         $fonts = implode("|", $fonts);
 
         $bytemonkey_font_url = $google_fonts_url . $fonts;
