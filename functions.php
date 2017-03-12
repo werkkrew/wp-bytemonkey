@@ -29,6 +29,12 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 648; /* pixels */
 }
 
+# Jetpack tiled gallery content width
+function bytemonkey_custom_tiled_gallery_width() {
+    return '1050';
+}
+add_filter( 'tiled_gallery_content_width', 'bytemonkey_custom_tiled_gallery_width' );
+
 /**
  * Set excerpt length 
  */
@@ -50,27 +56,34 @@ function bytemonkey_content_width() {
 add_action( 'template_redirect', 'bytemonkey_content_width' );
 
 function bytemonkey_fonts_url() {
-	
-	$google_fonts_url = 'https://fonts.googleapis.com/css?family='
-	
-	$noto_sans = 'Noto+Sans:400,400i,700,700i';
-	$noto_serif = 'Noto+Serif:400,400i,700,700i';
-	$roboto_slab = 'Roboto+Slab:400,300,700';
-	$open_sans = 'Open+Sans:400italic,400,600,700';
-	$source_sans = 'Source+Sans+Pro:400,600,400italic';
-	
-	$faces[0] = get_theme_mod('bytemonkey_main_typography_face', $default_face);
-	$faces[1] = get_theme_mod('bytemonkey_header_typography_face', $default_face);
-	$faces[2] = get_theme_mod('bytemonkey_widget_typography_face', $default_face);
-	
-	$faces = array_unique($faces);
-	
-	$faces = http_build_query($faces, '', '|');
-	
-	$bytemonkey_font_url = $google_fonts_url . $faces;
-	
-	return $bytemonkey_font_url;
+
+        $google_fonts_url = 'https://fonts.googleapis.com/css?family=';
+
+        $default_face = bytemonkey_get_typography_defaults();
+
+        $google_fonts = array ('Noto Sans' => 'Noto+Sans:400,400i,700,700i',
+							   'Noto Serif' => 'Noto+Serif:400,400i,700,700i',
+							   'Roboto Slab' => 'Roboto+Slab:400,300,700',
+							   'Open Sans' => 'Open+Sans:400italic,400,600,700',
+							   'Source Sans Pro' => 'Source+Sans+Pro:400,600,400italic');
+
+        $theme_fonts = array ( get_theme_mod('bytemonkey_main_typography_face', $default_face['main_face']),
+							   get_theme_mod('bytemonkey_header_typography_face', $default_face['head_face']),
+							   get_theme_mod('bytemonkey_widget_typography_face', $default_face['widg_face']));
+
+        $theme_fonts = array_unique($theme_fonts);
+		
+        foreach($theme_fonts as $font){
+			$fonts[] = $google_fonts[$font];
+        }
+
+        $fonts = implode("|", $fonts);
+
+        $bytemonkey_font_url = $google_fonts_url . $fonts;
+
+        return $bytemonkey_font_url;
 }
+
 
 if ( ! function_exists( 'bytemonkey_main_content_bootstrap_classes' ) ) :
 /**
@@ -497,3 +510,4 @@ function get_layout_class () {
 }
 
 endif;
+
